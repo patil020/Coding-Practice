@@ -45,7 +45,32 @@ public class Solution {
                 System.out.println(i);}
         }
     }
-
+    public static boolean isPalindrome(int n){
+        int original=n;
+        int reversed=0;
+        while(n>0){
+            int digit=n%10;
+            reversed=reversed*10+digit;
+            n=n/10;
+        }
+        return original==reversed;
+    }
+    public static boolean isPalidrome1(String str){
+        int left=0;
+        int right=str.length()-1;
+        while(left<right){
+            if(str.charAt(left)!=str.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+    
+    public static boolean isPrimeAndPalidrome(int n){
+    return (isPalindrome(n)&&isPrime1(n));
+    }
 
     public static void main(String[] args){
         int n = 5;
@@ -59,6 +84,13 @@ public class Solution {
         System.out.println(isprime(n));
         System.out.println("Is Prime1:");
         System.out.println(isPrime1(n));
+        System.out.println("Primes upto N:");
+        primeUptoN(n);  
+        System.out.println("Is Palindrome:");
+        System.out.println(isPalindrome(n));
+        System.out.println("Is Palindrome1:");
+        System.out.println(isPalidrome1("madam"));
+
     }
 
 
